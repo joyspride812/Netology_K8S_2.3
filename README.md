@@ -33,14 +33,14 @@
 
 ### Шаги выполнения
 - Включите RBAC в microk8s microk8s enable rbac
-- Создать SSL-сертификат для пользователя openssl genrsa -out developer.key 2048
-<img width="630" height="25" alt="image" src="https://github.com/user-attachments/assets/1a38b0c1-06cd-40d4-a607-bd1a6cd17999" />
+- Создать SSL-сертификат для пользователя openssl genrsa -out developer.key 2048  
+<img width="630" height="25" alt="image" src="https://github.com/user-attachments/assets/1a38b0c1-06cd-40d4-a607-bd1a6cd17999" />  
 
-openssl req -new -key developer.key -out developer.csr -subj "/CN={ИМЯ ПОЛЬЗОВАТЕЛЯ}" image
-<img width="958" height="21" alt="image" src="https://github.com/user-attachments/assets/c435de65-4e55-4d84-9b57-3277634ad358" />
+openssl req -new -key developer.key -out developer.csr -subj "/CN={ИМЯ ПОЛЬЗОВАТЕЛЯ}" image  
+<img width="958" height="21" alt="image" src="https://github.com/user-attachments/assets/c435de65-4e55-4d84-9b57-3277634ad358" />  
 
-openssl x509 -req -in developer.csr -CA {CA серт вашего кластера} -CAkey {CA ключ вашего кластера} -CAcreateserial -out developer.crt -days 365 image
-<img width="643" height="158" alt="image" src="https://github.com/user-attachments/assets/6a947a34-c88a-49c4-910c-2f865472e793" />
+openssl x509 -req -in developer.csr -CA {CA серт вашего кластера} -CAkey {CA ключ вашего кластера} -CAcreateserial -out developer.crt -days 365 image  
+<img width="643" height="158" alt="image" src="https://github.com/user-attachments/assets/6a947a34-c88a-49c4-910c-2f865472e793" />  
 
 - Создать Role (только просмотр логов и описания подов) и RoleBinding
 - Проверить доступ
